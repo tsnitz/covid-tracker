@@ -29,7 +29,7 @@ app.layout = html.Div([
     dcc.Dropdown(id='state-selector',
         # options=[{"label": state, "value": state} for state in all_states],
          # TODO: Pass in all state values here
-        options=[{"label": state, "value": state} for state in ["Florida", "Georgia", "Alabama"]],
+        # options=[{"label": state, "value": state} for state in ["Florida", "Georgia", "Alabama"]],
         value='Georgia'
     ),
     dcc.Graph(id='indicator-graphic-state'),
@@ -44,7 +44,7 @@ app.layout = html.Div([
     This is intended to supplement the excellent [dashboard](https://coronavirus.jhu.edu/map.html) maintained by The Center for Systems Science and Engineering (CSSE) at Johns Hopkins. Confirmed cases and deaths data come from this dashboard and can be found in their [Git repo](https://github.com/CSSEGISandData/COVID-19).
     Daily testing data can be found [here](https://covidtracking.com/api/us/daily) and is maintained by the [COVID Tracking Project](https://covidtracking.com/)
     """),
-    dcc.Dropdown(id='dropdown'),
+    dcc.Dropdown(id='dropdown', style={'display': 'none'}),
     # Hidden div inside the app that stores the intermediate value
     html.Div(id='intermediate-value', style={'display': 'none'})
 ])
@@ -166,8 +166,11 @@ def update_indicator_graphic_us(yaxis_type_us, data):
 
     return fig
 
+
+# id='state-selector'
+
 @app.callback(
-    Output('indicator-graphic-state', 'figure'),
+    [Output('indicator-graphic-state', 'figure'), Output('state-selector', 'options')],
     [Input('yaxis-type-state', 'value'), Input('state-selector', 'value'), Input('intermediate-value', 'children')])
 def update_indicator_graphic_state(yaxis_type_us, state, data):
     datasets = json.loads(data)
@@ -213,7 +216,7 @@ def update_indicator_graphic_state(yaxis_type_us, state, data):
     fig.update_yaxes(title_text="<b>#<br>people</b> ", secondary_y=False, type=yaxis_type_us)
     fig.update_yaxes(title_text="<b>%</b><br>", secondary_y=True)
 
-    return fig
+    return fig, [{"label": state, "value": state} for state in all_states]
 
 if __name__ == '__main__':
     app.run_server(debug=True)
