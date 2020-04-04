@@ -1,3 +1,4 @@
+import configparser
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -27,9 +28,6 @@ app.layout = html.Div([
         labelStyle={'display': 'inline-block'}
     ),
     dcc.Dropdown(id='state-selector',
-        # options=[{"label": state, "value": state} for state in all_states],
-         # TODO: Pass in all state values here
-        # options=[{"label": state, "value": state} for state in ["Florida", "Georgia", "Alabama"]],
         value='Georgia'
     ),
     dcc.Graph(id='indicator-graphic-state'),
@@ -49,10 +47,9 @@ app.layout = html.Div([
     html.Div(id='intermediate-value', style={'display': 'none'})
 ])
 
-
-
 @app.callback(Output('intermediate-value', 'children'), [Input('dropdown', 'value')])
 def load_data(dummy_var):
+
     confirmed = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
     deaths = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
 
@@ -166,9 +163,6 @@ def update_indicator_graphic_us(yaxis_type_us, data):
 
     return fig
 
-
-# id='state-selector'
-
 @app.callback(
     [Output('indicator-graphic-state', 'figure'), Output('state-selector', 'options')],
     [Input('yaxis-type-state', 'value'), Input('state-selector', 'value'), Input('intermediate-value', 'children')])
@@ -176,6 +170,7 @@ def update_indicator_graphic_state(yaxis_type_us, state, data):
     datasets = json.loads(data)
     report_us = pd.read_json(datasets['report_us'], orient='split')
     all_states = list(datasets["all_states"])
+    state_selector_options = [{"label": state, "value": state} for state in all_states]
 
     start_date = pd.Timestamp("2020-03-01").tz_localize('US/Eastern')
 
@@ -216,7 +211,7 @@ def update_indicator_graphic_state(yaxis_type_us, state, data):
     fig.update_yaxes(title_text="<b>#<br>people</b> ", secondary_y=False, type=yaxis_type_us)
     fig.update_yaxes(title_text="<b>%</b><br>", secondary_y=True)
 
-    return fig, [{"label": state, "value": state} for state in all_states]
+    return fig, state_selector_options
 
 if __name__ == '__main__':
     app.run_server(debug=True)

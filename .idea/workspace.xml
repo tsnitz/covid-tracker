@@ -7,24 +7,35 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/corona_dash.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/corona_dash.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/requirements.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/testing_us.csv" beforeDir="false" afterPath="$PROJECT_DIR$/root/testing_us.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1a5q1K6KGz6FtJD7coVvmswpR3W" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\corona_dash\root" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.application">
+  <component name="RunManager" selected="Python.application (1)">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="corona_dash" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.application" />
         <item itemvalue="Python.application (1)" />
+        <item itemvalue="Python.application" />
         <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
@@ -110,22 +121,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="938" height="257" key="GridCell.Tab.0.bottom" timestamp="1586029195728">
+    <state x="240" y="344" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586035559820">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586029195728" />
-    <state width="938" height="257" key="GridCell.Tab.0.center" timestamp="1586029195728">
+    <state x="240" y="344" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586035559820" />
+    <state width="938" height="126" key="GridCell.Tab.0.bottom" timestamp="1586035581610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="257" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586029195728" />
-    <state width="938" height="257" key="GridCell.Tab.0.left" timestamp="1586029195728">
+    <state width="938" height="126" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586035581610" />
+    <state width="938" height="126" key="GridCell.Tab.0.center" timestamp="1586035581610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="257" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586029195728" />
-    <state width="938" height="257" key="GridCell.Tab.0.right" timestamp="1586029195728">
+    <state width="938" height="126" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586035581610" />
+    <state width="938" height="126" key="GridCell.Tab.0.left" timestamp="1586035581610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="257" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586029195728" />
+    <state width="938" height="126" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586035581610" />
+    <state width="938" height="126" key="GridCell.Tab.0.right" timestamp="1586035581610">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="938" height="126" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586035581610" />
     <state width="938" height="370" key="GridCell.Tab.1.bottom" timestamp="1586024429214">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -142,5 +157,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="938" height="370" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586024429214" />
+    <state x="184" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586035590497">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586035590497" />
   </component>
 </project>
