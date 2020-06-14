@@ -47,8 +47,8 @@ app.layout = html.Div([
     html.Div(id='intermediate-value', style={'display': 'none'})
 ])
 
-@app.callback(Output('intermediate-value', 'children'), [Input('dropdown', 'value')])
-def load_data(dummy_var):
+def make_data():
+    print("make_data")
 
     confirmed = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
     deaths = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
@@ -119,7 +119,25 @@ def load_data(dummy_var):
         'all_states': list(all_states)
     }
 
-    return json.dumps(outputs)
+    with open('data.json', 'w') as outfile:
+        json.dump(json.dumps(outputs), outfile)
+
+@app.callback(Output('intermediate-value', 'children'), [Input('dropdown', 'value')])
+def load_data(dummy_var):
+    print("load_data")
+
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    last_updated_datetime = pd.Timestamp(config['state']['lastupdateddatetime'])
+    time_since_update = pd.Timestamp.today() - last_updated_datetime
+    hours_since_update = time_since_update.total_seconds() / 60.0 / 60.0
+    print("hours_since_update: {}".format(hours_since_update))
+    if hours_since_update >= 1.0:
+        make_data()
+        # TODO: Update last_updated_datetime in config.ini here
+    with open('data.json') as json_file:
+        data = json.load(json_file)
+    return data
 
 @app.callback(
     Output('indicator-graphic-us', 'figure'),
